@@ -1,0 +1,27 @@
+syntax = "proto3";
+package   trpc.examples.stream;
+
+option  go_package = "trpc.group/trpc-go/trpc-go/examples/features/stream";
+
+service TestStream {
+  rpc UploadFileStream(stream UploadFileReq) returns (UploadFileResp);
+  rpc DownloadFileStream(DownloadFileReq) returns (stream DownloadFileResp);
+}
+
+message UploadFileReq {
+  bytes content = 1;
+  string filename = 2;
+}
+
+message UploadFileResp {
+  bool success = 1;
+  string message = 2;
+}
+
+message DownloadFileReq {
+    string filename = 1;
+}
+
+message DownloadFileResp {
+    bytes content = 1;
+}

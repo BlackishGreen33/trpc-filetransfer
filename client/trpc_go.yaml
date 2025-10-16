@@ -1,0 +1,13 @@
+global:
+  namespace: Development
+  env_name: test
+
+client:
+  timeout: 5000
+  service:
+    - name: trpc.examples.stream.TestStream
+      namespace: Development
+      network: tcp
+      protocol: trpc
+      timeout: 3000
+      target: ip://127.0.0.1:8010

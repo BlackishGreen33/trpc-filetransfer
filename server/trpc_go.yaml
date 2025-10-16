@@ -1,0 +1,17 @@
+global:
+  namespace: Development
+  env_name: test
+
+server:
+  app: examples
+  server: stream
+  bin_path: /usr/local/trpc/bin/
+  conf_path: /usr/local/trpc/conf/
+  data_path: /usr/local/trpc/data/
+  service:
+    - name: trpc.examples.stream.TestStream
+      ip: 127.0.0.1
+      port: 8010
+      network: tcp
+      protocol: trpc
+      timeout: 1000
